@@ -1,6 +1,6 @@
 public class RestAssuredHelper {
 
-    public void abc(){
+    public void valid(){
 
     }
 }
