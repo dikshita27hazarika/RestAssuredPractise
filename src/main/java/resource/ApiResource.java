@@ -14,6 +14,8 @@ import java.util.Map;
 
 public class ApiResource {
 
+
+
     public static DatumListResource getUsersForPageTwo() {
         String url = ServerConfig.SERVER_URL + ApiPaths.LIST_RESOURCE;
         Map<String, String> params = new HashMap<String, String>();
@@ -34,7 +36,6 @@ public class ApiResource {
         header.put("Accept", "*/*");
         ExtractableResponse<Response> response = RestAssuredHelper.callGetApi(url, params, header);
         //response.statusCode();
-        //response.body();
         return response.statusCode()==200 ? response.as(UsersTwo.class) : null;
     }
 
