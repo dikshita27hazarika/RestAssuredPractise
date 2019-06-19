@@ -1,6 +1,6 @@
 package testcases;
 
-import models.listuser.Users;
+import models.listresource.DatumListResource;
 import models.singleresource.UnknownTwo;
 import models.singleuser.UsersTwo;
 import org.testng.Assert;
@@ -9,11 +9,11 @@ import resource.ApiResource;
 
 public class TestcaseOne extends TestBaseSetup{
 
-    @Test
-    public void testOneGetApi(){
-        Users users = ApiResource.getUsersForPageTwo();
-        Assert.assertNotNull(users.getPage(), "Page is null");
-    }
+//    @Test
+//    public void testOneGetApi(){
+//        Users users = ApiResource.getUsersForPageTwo();
+//        Assert.assertNotNull(users.getPage(), "Page is null");
+//    }
 
     @Test
     public  void testTwoGetApi(){
@@ -36,6 +36,11 @@ public class TestcaseOne extends TestBaseSetup{
     public void testSingleResource(){
         UnknownTwo unknownTwo =  ApiResource.ResourceUnknownTwo();
         Assert.assertNotNull(unknownTwo.getData(), "page is null");
+    }
+    @Test
+    public void testListResource(){
+        DatumListResource datumListResource = ApiResource.getUsersForPageTwo();
+        Assert.assertNotNull(datumListResource.getData());
     }
 
 }

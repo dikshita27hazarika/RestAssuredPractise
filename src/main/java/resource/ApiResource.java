@@ -5,7 +5,7 @@ import constants.ApiPaths;
 import constants.ServerConfig;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import models.listuser.Users;
+import models.listresource.DatumListResource;
 import models.singleresource.UnknownTwo;
 import models.singleuser.UsersTwo;
 
@@ -14,17 +14,17 @@ import java.util.Map;
 
 public class ApiResource {
 
-    public static Users getUsersForPageTwo() {
-        String url = ServerConfig.SERVER_URL + ApiPaths.LIST_USERS;
+    public static DatumListResource getUsersForPageTwo() {
+        String url = ServerConfig.SERVER_URL + ApiPaths.LIST_RESOURCE;
         Map<String, String> params = new HashMap<String, String>();
-        params.put("page", "2");
+        //params.put("page", "2");
         Map<String, String> header = new HashMap<String, String>();
         header.put("Accept", "*/*");
         ExtractableResponse<Response> response = RestAssuredHelper.callGetApi(url, params, header);
         //response.statusCode();
         //response.body();
-        Users users = response.as(Users.class);
-        return users;
+        DatumListResource datumListResource = response.as(DatumListResource.class);
+        return datumListResource;
     }
 
     public static UsersTwo getUsersForTwo() {
