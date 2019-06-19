@@ -11,7 +11,7 @@ public class RestAssuredHelper {
 
     public static ExtractableResponse<Response> callGetApi(String url, Map<String, String> paramMap, Map<String, String> headerMap){
         ExtractableResponse<Response> response = RestAssured.given().log().all().headers(headerMap).parameters(paramMap).when().get(url).then().log().all().extract();
-        return response;
+       return response.statusCode() == 200 ? response : null;
     }
 
     // Will implement this method when we learn about post api. Concentrate on above method as of now.
